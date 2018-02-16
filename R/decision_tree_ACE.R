@@ -21,16 +21,18 @@ decision_tree_ACE <- function(parameters,
 
   mcall <- match.call()
 
-  osNode.cost <- readRDS(file = cost_dectree)
-  osNode.health <- readRDS(file = health_dectree)
+  osNode.cost <- readRDS(file = paste0("data/", cost_dectree))
+  osNode.health <- readRDS(file = paste0("data/", health_dectree))
 
   assign_branch_values(osNode.cost,
                        osNode.health,
                        parameter_p = subset(parameters, val_type == "QALYloss"),
                        parameter_cost = subset(parameters, val_type == "cost"))
 
-  path_probs.screen <- calc_pathway_probs(osNode.cost)
-  osNode.cost$Set(path_probs = path_probs.screen)
+  ##TODO:
+  LTBI_Dx <- total_pathway_prob_sample(osNode.cost,
+                                       pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity",
+                                       N.mc)
 
   mc_cost <- MonteCarlo_expectedValues(osNode = osNode.cost,
                                        n = N.mc)
@@ -38,8 +40,11 @@ decision_tree_ACE <- function(parameters,
   mc_health <- MonteCarlo_expectedValues(osNode = osNode.health,
                                          n = N.mc)
 
-  list(mc_cost = as.numeric(mc_cost$`expected values`),
+  list(osNode_cost = osNode.cost,
+       osNode_health = osNode.health,
+       mc_cost = as.numeric(mc_cost$`expected values`),
        mc_health = as.numeric(mc_health$`expected values`),
+       LTBI_Dx = LTBI_Dx,
        call = mcall,
        N.mc = N.mc)
 }

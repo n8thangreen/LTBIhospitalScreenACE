@@ -115,12 +115,12 @@ IMPUTED_sample$issdt_year <- format(IMPUTED_sample$issdt, '%Y')
 
 IMPUTED_sample <-
   IMPUTED_sample %>%
-  mutate(date_death1_issdt = date_death1 - issdt,
-         date_exit_uk1_issdt = date_exit_uk1 - issdt,
-         date_death1_issdt.years = as.numeric(date_death1_issdt)/365.25,
-         date_exit_uk1_issdt.years = as.numeric(date_exit_uk1_issdt)/365.25,
-         date_exit_uk1_issdt = ifelse(date_exit_uk1_issdt.years == 100, Inf, date_exit_uk1_issdt),
-         date_exit_uk1_issdt.years = ifelse(date_exit_uk1_issdt.years == 100, Inf, date_exit_uk1_issdt.years))
+  dplyr::mutate(date_death1_issdt = date_death1 - issdt,
+                date_exit_uk1_issdt = date_exit_uk1 - issdt,
+                date_death1_issdt.years = as.numeric(date_death1_issdt)/365.25,
+                date_exit_uk1_issdt.years = as.numeric(date_exit_uk1_issdt)/365.25,
+                date_exit_uk1_issdt = ifelse(date_exit_uk1_issdt.years == 100, Inf, date_exit_uk1_issdt),
+                date_exit_uk1_issdt.years = ifelse(date_exit_uk1_issdt.years == 100, Inf, date_exit_uk1_issdt.years))
 
 
 # uk entry to follow-up days -------------------------------------------------

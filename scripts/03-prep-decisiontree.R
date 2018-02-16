@@ -9,7 +9,7 @@
 
 # deterministic scenario data ---------------------------------------------
 
-parameter_values_file <- system.file("data", sprintf("scenario-parameter-values.xlsx"),
+parameter_values_file <- system.file("data", sprintf("scenario_parameters.xlsx"),
                                      package = "LTBIhospitalScreenACE")
 
 scenario_parameter_cost <- readxl::read_excel(parameter_values_file,

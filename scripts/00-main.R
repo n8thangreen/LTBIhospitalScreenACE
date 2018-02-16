@@ -2,7 +2,7 @@
 # LTBI screening ACE
 # N Green
 #
-# high-level global scenario runner
+# high-level script
 # for a (deterministic) sensitivity analysis
 # of screening programme
 #
@@ -32,7 +32,7 @@ source("scripts/05-prep-folders.R", echo = TRUE)
 #########
 
 res <- lapply(scenario_parameters,
-              decision_tree_cluster,
+              decision_tree_ACE,
               N.mc = N.mc,
               cost_dectree = "osNode_cost.Rds",
               health_dectree = "osNode_cost.Rds")
