@@ -1,6 +1,6 @@
-# LTBIhospitalScreenACE
+# LTBI hospital screening ACE
 
-The goal of LTBIhospitalScreenACE is to ...
+The goal of LTBIhospitalScreenACE is to simulate individuals entering A & E in the UK and then be potentially screening for LTBI.
 
 ## Example
 
