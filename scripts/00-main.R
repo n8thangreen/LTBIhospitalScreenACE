@@ -31,4 +31,8 @@ source("scripts/05-prep-folders.R", echo = TRUE)
 # model #
 #########
 
-source("scripts/06-parallel-decision-tree.R", echo = TRUE)
+res <- lapply(scenario_parameters,
+              decision_tree_cluster,
+              N.mc = N.mc,
+              cost_dectree = "osNode_cost.Rds",
+              health_dectree = "osNode_cost.Rds")

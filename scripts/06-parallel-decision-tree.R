@@ -86,21 +86,3 @@ save(dectree_res, file = paste(exit_wd, diroutput, "dectree_res.RData", sep = "/
 
 
 setwd(exit_wd)
-
-
-##to debug
-res <- lapply(scenario_parameters,
-              decision_tree_cluster,
-              N.mc = N.mc,
-              n.uk_tb = n.uk_tb,
-              n.exit_tb = n.exit_tb,
-              cost_dectree = "osNode_cost.Rds",
-              health_dectree = "osNode_cost.Rds")
-
-xx <- decision_tree_cluster(parameters = scenario_parameters[[1]],
-                            n.uk_tb = 10,
-                            n.exit_tb = 10,
-                            cost_dectree = "osNode_cost.Rds",
-                            health_dectree = "osNode_cost.Rds")
-
-
