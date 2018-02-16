@@ -1,11 +1,42 @@
 Package: LTBIhospitalScreenACE
 Type: Package
-Title: What the Package Does (Title Case)
+Title: ACE LTBI screening cost-effectiveness analysis
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
+Author: Nathan Green
+Maintainer: <nathan.green@imperial.ac.uk>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: MIT
 Encoding: UTF-8
 LazyData: true
+Imports:
+    QALY,
+    treeSimR,
+    LTBIscreeningproject,
+    BCEA,
+    readr,
+    ggplot2,
+    readxl,
+    data.tree,
+    survival,
+    mstate,
+    cmprsk,
+    reshape,
+    data.table,
+    purrr,
+    plyr,
+    dplyr,
+    reshape2,
+    magrittr,
+    purrr,
+    arm,
+    parallel,
+    ggtern
+RoxygenNote: 6.0.1
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat,
+    denstrip,
+    plotCostEffectiveness
+VignetteBuilder: knitr

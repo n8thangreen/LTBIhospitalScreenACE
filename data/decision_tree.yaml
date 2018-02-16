@@ -1,0 +1,69 @@
+
+    name: LTBI screening cost
+    distn: unif
+    min: 0
+    max: 0
+    p: 1
+    shape: NA
+    scale: NA
+    type: logical
+    LTBI:
+      p: 0.03
+      distn: unif
+      min: 0
+      max: 0
+      type: chance
+      Not Agree to Screen:
+        p: 0.4
+        distn: unif
+        min: 0
+        max: 0
+        type: terminal
+      Agree to Screen:
+        p: 0.6
+        distn: unif
+        min: 50
+        max: 106
+        type: chance
+        1-Sensitivity:
+          p: 0.16
+          distn: unif
+          min: 0
+          max: 0
+          type: terminal
+        Sensitivity:
+          p: 0.84
+          distn: unif
+          min: 0
+          max: 0
+          type: terminal
+    non-LTBI:
+      p: 0.97
+      distn: unif
+      min: 0
+      max: 0
+      type: chance
+      Not Agree to Screen:
+        p: 0.4
+        distn: unif
+        min: 0
+        max: 0
+        type: terminal
+      Agree to Screen:
+        p: 0.6
+        distn: unif
+        min: 50
+        max: 106
+        type: chance
+        Specificity:
+          p: 0.99
+          distn: unif
+          min: 0
+          max: 0
+          type: terminal
+        1-Specificity:
+          p: 0.01
+          distn: unif
+          min: 0
+          max: 0
+          type: terminal
