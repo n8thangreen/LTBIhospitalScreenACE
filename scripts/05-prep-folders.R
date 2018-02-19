@@ -6,11 +6,6 @@
 # simulation specific constants
 
 
-N.mc <- 10 # number of Monte Carlo iterations
-study <- "QFT"
-
-scenario_name <- ""
-
 # # create permanent output folder
 diroutput <- sprintf("ext-data/output")
 dir.create(diroutput, showWarnings = FALSE)

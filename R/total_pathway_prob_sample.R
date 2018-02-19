@@ -1,16 +1,15 @@
 
-##TODO:
-
-#' total_pathway_prob_sample
+#' Total pathway probability sample
 #'
-#' @param osNode
-#' @param pathString
-#' @param N.mc
+#' @param osNode Decision tree object.
+#' @param pathString Route from root to leaf. Node names separated by /.
+#' @param N.mc Number of samples.
 #'
-#' @return
+#' @return Vector of probabilities.
 #' @export
 #'
 #' @examples
+#'
 total_pathway_prob_sample <- function(osNode,
                                       pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity",
                                       N.mc = 2){
@@ -34,5 +33,4 @@ total_pathway_prob_sample <- function(osNode,
 
   path_prob
 }
-
 

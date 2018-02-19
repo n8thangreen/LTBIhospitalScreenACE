@@ -29,7 +29,6 @@ decision_tree_ACE <- function(parameters,
                        parameter_p = subset(parameters, val_type == "QALYloss"),
                        parameter_cost = subset(parameters, val_type == "cost"))
 
-  ##TODO:
   LTBI_Dx <- total_pathway_prob_sample(osNode.cost,
                                        pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity",
                                        N.mc)
