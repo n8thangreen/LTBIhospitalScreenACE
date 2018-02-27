@@ -30,13 +30,13 @@ Imports:
     magrittr,
     purrr,
     arm,
-    parallel,
-    ggtern
+    parallel
 RoxygenNote: 6.0.1
 Suggests:
     knitr,
     rmarkdown,
     testthat,
     denstrip,
-    plotCostEffectiveness
+    plotCostEffectiveness,
+    ggtern
 VignetteBuilder: knitr
