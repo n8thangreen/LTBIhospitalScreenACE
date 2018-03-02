@@ -17,7 +17,8 @@
 decision_tree_ACE <- function(parameters,
                               N.mc = 2,
                               cost_dectree = "osNode_cost.Rds",
-                              health_dectree = "osNode_health.Rds"){
+                              health_dectree = "osNode_health.Rds",
+                              LTBI_pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity"){
 
   mcall <- match.call()
 
@@ -30,7 +31,7 @@ decision_tree_ACE <- function(parameters,
                        parameter_cost = subset(parameters, val_type == "cost"))
 
   LTBI_Dx <- total_pathway_prob_sample(osNode.cost,
-                                       pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity",
+                                       pathString = LTBI_pathString,
                                        N.mc)
 
   mc_cost <- MonteCarlo_expectedValues(osNode = osNode.cost,
