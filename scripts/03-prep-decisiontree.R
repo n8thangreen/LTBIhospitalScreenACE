@@ -7,9 +7,13 @@
 # deterministic sensitivity analysis
 
 
+N.mc <- 10 # number of Monte Carlo iterations
+
+
 # deterministic scenario data ---------------------------------------------
 
-parameter_values_file <- system.file("data", sprintf("scenario_parameters.xlsx"),
+# parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
+parameter_values_file <- system.file("data", "scenario_parameters_predicted.xlsx",
                                      package = "LTBIhospitalScreenACE")
 
 scenario_parameter_cost <- readxl::read_excel(parameter_values_file,
@@ -44,7 +48,8 @@ save(scenario_parameters, file = "data/scenario_parameters.RData")
 
 # yaml tree ---------------------------------------------------------------
 
-osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
+# osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
+osNode.cost.fileName <- system.file("data", "decision_tree_predictive.yaml",
                                     package = "LTBIhospitalScreenACE")
 
 costeff.cost <- treeSimR::costeffectiveness_tree(yaml_tree = osNode.cost.fileName)

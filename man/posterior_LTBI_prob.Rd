@@ -2,12 +2,12 @@
 % Please edit documentation in R/posterior_LTBI_prob.R
 \name{posterior_LTBI_prob}
 \alias{posterior_LTBI_prob}
-\title{Posterior LTBI probability}
+\title{Posterior LTBI probability using time disease-free}
 \usage{
 posterior_LTBI_prob(p_LTBI, t)
 }
 \arguments{
-\item{p_LTBI}{Probability.}
+\item{p_LTBI}{Probability prevalence.}
 
 \item{t}{Time (positive integer).}
 }
@@ -16,6 +16,7 @@ Probability
 }
 \description{
 Conditional on having 'survived' up to time \code{t}.
+use for time in country before presenting at A&E.
 }
 \examples{
 
