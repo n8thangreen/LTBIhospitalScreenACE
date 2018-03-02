@@ -13,9 +13,8 @@ dir.create(diroutput, showWarnings = FALSE)
 plots_folder <- system.file("plots",
                             package = "LTBIhospitalScreenACE")
 
-plots_folder_scenario <- sprintf("%s/%s", plots_folder, scenario_name)
-dir.create(plots_folder_scenario, showWarnings = FALSE)
+dir.create(plots_folder, showWarnings = FALSE)
 
-output_filename <- sprintf("decisiontree-results_%s_%s.rds", scenario_name,
+output_filename <- sprintf("decisiontree-results_%s.rds",
                            format(Sys.time(), "%Y-%m-%d %I-%p"))
 

@@ -170,8 +170,3 @@ n.popyear_screen <-
   purrr::set_names(c("year", "pop"))
 
 
-N.mc <- 10 # number of Monte Carlo iterations
-study <- "QFT"
-
-scenario_name <- ""
-

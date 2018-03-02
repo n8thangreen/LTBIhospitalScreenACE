@@ -14,7 +14,7 @@ total_pathway_prob_sample <- function(osNode,
                                       pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity",
                                       N.mc = 2){
 
-  path_prob <- vector(length = N.mc)
+  path_prob <- vector(mode = "double", length = N.mc)
 
   for (i in seq_len(N.mc)) {
 
@@ -25,7 +25,7 @@ total_pathway_prob_sample <- function(osNode,
       osNode$Set(p = rprob)
     }
 
-    all_path_probs <- calc_pathway_probs(osNode)
+    all_path_probs <- calc_pathway_probs(osNode, FUN = "product")
     osNode$Set(path_probs = all_path_probs)
     path_prob[i] <- osNode.cost$Get("path_probs",
                                     filterFun = function(x) x$pathString == pathString)

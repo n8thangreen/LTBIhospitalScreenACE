@@ -46,20 +46,52 @@ posttest_neg <- function(prev,
 }
 
 
+#' posttest_pos_aggregate
+#'
+#' ##TODO: check maths
+#'
+#' See Modeling in Medical Decision Making: A Bayesian Approach
+#' Giovanni Parmigiani book example
+#'
+#' Currently, only computes with pmf for prevalence of two probabilities
+#' i.e. p(x=1)=prevalence
+#' so then the likelihood reeduces to sensitivity and specificity
+#' if using a distn for prevalence eg beta/uniform
+#' then will need to integrate denominator.
+#'
+#' @param n_pos Number of positives
+#' @param n_neg Number of negatives
+#' @param sens Sensitivity
+#' @param spec Specificity
+#' @param prev Prevalence
+#'
+#' @return
+#' @export
+#'
+#' @examples
+#'
+#' posttest_pos_aggregate(n_pos = 10, n_neg = 10, sens = 0.9, spec = 0.9, prev = 0.1)
+#'
 posttest_pos_aggregate <- function(n_pos,
                                    n_neg,
                                    sens,
                                    spec,
                                    prev) {
 
-  N <- n_pos + n_neg
+  # prob_pos <- prev*sens + (1 - prev)*(1 - spec)
+  # prob_neg <- prev*(1 - sens) + (1 - prev)*spec
 
-  lik_pos <- choose(n_pos, N) * sens^n_pos * (1 - sens)^n_neg
-  lik_neg <- choose(n_neg, N) * spec^n_neg * (1 - spec)^n_pos
+  prob_pos <- sens
+  prob_neg <- spec
+
+  lik_pos <- prob_pos^n_pos * (1 - prob_pos)^n_neg
+  lik_neg <- (1 - prob_neg)^n_pos * prob_neg^n_neg
 
   (lik_pos*prev)/(lik_pos*prev + lik_neg*(1 - prev))
 }
 
+
+##TODO:
 # Prevalence estimation when disease status is verified only among test
 # positives: Applications in HIV screening programs, G. Thomas, Emma, B. Peskoe,
 # Sarah, Spiegelman, Donna, Statistics in Medicine, 2017

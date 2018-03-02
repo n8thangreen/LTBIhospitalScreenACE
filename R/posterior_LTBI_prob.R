@@ -1,9 +1,10 @@
 
-#' Posterior LTBI probability
+#' Posterior LTBI probability using time disease-free
 #'
 #' Conditional on having 'survived' up to time \code{t}.
+#' use for time in country before presenting at A&E.
 #'
-#' @param p_LTBI Probability.
+#' @param p_LTBI Probability prevalence.
 #' @param t Time (positive integer).
 #'
 #' @return Probability
