@@ -4,9 +4,7 @@
 \alias{total_pathway_prob_sample}
 \title{Total pathway probability sample}
 \usage{
-total_pathway_prob_sample(osNode,
-  pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity",
-  N.mc = 2)
+total_pathway_prob_sample(osNode, pathString, N.mc = 2)
 }
 \arguments{
 \item{osNode}{Decision tree object.}

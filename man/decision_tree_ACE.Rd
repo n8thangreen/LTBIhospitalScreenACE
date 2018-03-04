@@ -5,8 +5,7 @@
 \title{Decision Tree for ACE project}
 \usage{
 decision_tree_ACE(parameters, N.mc = 2, cost_dectree = "osNode_cost.Rds",
-  health_dectree = "osNode_health.Rds",
-  LTBI_pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity")
+  health_dectree = "osNode_health.Rds", LTBI_pathString)
 }
 \arguments{
 \item{cost_dectree}{Rds file names}
