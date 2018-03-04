@@ -48,8 +48,10 @@ save(scenario_parameters, file = "data/scenario_parameters.RData")
 
 # yaml tree ---------------------------------------------------------------
 
+yaml_filename <- "decision_tree_predictive_allscreen.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
+
 # osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
-osNode.cost.fileName <- system.file("data", "decision_tree_predictive.yaml",
+osNode.cost.fileName <- system.file("data", yaml_filename,
                                     package = "LTBIhospitalScreenACE")
 
 costeff.cost <- treeSimR::costeffectiveness_tree(yaml_tree = osNode.cost.fileName)
