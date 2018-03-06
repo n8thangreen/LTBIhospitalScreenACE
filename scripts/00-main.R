@@ -26,14 +26,20 @@ library(treeSimR)
 source("scripts/03-prep-decisiontree.R", echo = TRUE)
 source("scripts/05-prep-folders.R", echo = TRUE)
 
+
 #########
 # model #
 #########
 
-res <- lapply(scenario_parameters,
-              decision_tree_ACE,
-              N.mc = N.mc,
+res <- mapply(FUN = decision_tree_ACE,
+              scenario_parameters,
+              N.mc = 20,
               cost_dectree = "osNode_cost.Rds",
               health_dectree = "osNode_cost.Rds",
               # LTBI_pathString = "LTBI screening cost/Agree to Screen/Positive/PPV")
-              LTBI_pathString = "LTBI screening cost/Positive/PPV")
+              LTBI_pathString = "LTBI screening cost/Positive/PPV",
+              N = c(395, 719, 395, 719),
+              SIMPLIFY = FALSE,
+              USE.NAMES = FALSE)
+
+save(res, file = "data/res.RData")

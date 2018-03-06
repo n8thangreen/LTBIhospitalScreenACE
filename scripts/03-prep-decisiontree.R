@@ -48,7 +48,7 @@ save(scenario_parameters, file = "data/scenario_parameters.RData")
 
 # yaml tree ---------------------------------------------------------------
 
-yaml_filename <- "decision_tree_predictive_allscreen.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
+yaml_filename <- "decision_tree_predictive_allscreen_p.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
 
 # osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
 osNode.cost.fileName <- system.file("data", yaml_filename,

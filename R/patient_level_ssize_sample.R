@@ -1,10 +1,12 @@
 
 #' patient_level_ssize_sample
 #'
-#' @param n Initial patient cohort size
-#' @param osNode decision tree
+#' To include uncertainty at the individual level due to small sample size.
 #'
-#' @return Sampled patient subset size
+#' @param n Initial patient cohort size
+#' @param osNode decision tree TODO make this S3 method of costeffectiveness object
+#'
+#' @return Sampled patient subset size vector length N.mc
 #' @export
 #'
 #' @examples

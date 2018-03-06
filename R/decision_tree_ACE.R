@@ -18,7 +18,8 @@ decision_tree_ACE <- function(parameters,
                               N.mc = 2,
                               cost_dectree = "osNode_cost.Rds",
                               health_dectree = "osNode_health.Rds",
-                              LTBI_pathString){
+                              LTBI_pathString,
+                              N = 100){
 
   mcall <- match.call()
 
@@ -34,7 +35,8 @@ decision_tree_ACE <- function(parameters,
                                             pathString = LTBI_pathString,
                                             N.mc)
 
-  LTBI_Dx_ssize <- patient_level_ssize_sample(osNode = osNode.cost,
+  LTBI_Dx_ssize <- patient_level_ssize_sample(N = N,
+                                              osNode = osNode.cost,
                                               pathString = LTBI_pathString,
                                               N.mc = N.mc)
 
@@ -50,6 +52,7 @@ decision_tree_ACE <- function(parameters,
        mc_health = as.numeric(mc_health$`expected values`),
        LTBI_Dx_prob = LTBI_Dx_prob,
        LTBI_Dx_ssize = LTBI_Dx_ssize,
-       call = mcall,
+       # call = mcall,
+       N = N,
        N.mc = N.mc)
 }
