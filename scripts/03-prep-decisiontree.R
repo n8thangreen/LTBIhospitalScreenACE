@@ -7,13 +7,18 @@
 # deterministic sensitivity analysis
 
 
-N.mc <- 10 # number of Monte Carlo iterations
-
+n_NPH <- 395
+n_WMH <- 719
+n_all <- n_NPH + n_WMH
 
 # deterministic scenario data ---------------------------------------------
 
-# parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
-parameter_values_file <- system.file("data", "scenario_parameters_predicted.xlsx",
+# there are 2 decision tree arrangements:
+#  - prevalence is 'known' -> sensitivity and specificity used
+#  - number of positive test results is known -> PPV and NPV used
+
+parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
+# parameter_values_file <- system.file("data", "scenario_parameters_predicted.xlsx",
                                      package = "LTBIhospitalScreenACE")
 
 scenario_parameter_cost <- readxl::read_excel(parameter_values_file,
@@ -32,8 +37,8 @@ scenario_parameter_p.melt <-
 
 # combine probs and costs in to a single array
 
-scenario_parameter_cost$val_type <- "cost"
-scenario_parameter_p.melt$val_type <- "QALYloss"
+if (nrow(scenario_parameter_cost) > 0) scenario_parameter_cost$val_type <- "cost"
+if (nrow(scenario_parameter_p.melt) > 0) scenario_parameter_p.melt$val_type <- "QALYloss"
 
 scenario_parameters <- dplyr::bind_rows(scenario_parameter_cost,
                                         scenario_parameter_p.melt)
@@ -48,7 +53,10 @@ save(scenario_parameters, file = "data/scenario_parameters.RData")
 
 # yaml tree ---------------------------------------------------------------
 
-yaml_filename <- "decision_tree_predictive_allscreen_p.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
+# different trees for if p is specified
+# as uniform distn or point values
+
+yaml_filename <- "decision_tree_allscreen_p.yaml" #"decision_tree_predictive_allscreen_p.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
 
 # osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
 osNode.cost.fileName <- system.file("data", yaml_filename,

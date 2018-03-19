@@ -5,11 +5,11 @@
 #' for N simulations
 #'
 #' @param parameters
-#' @param N.mc
-#' @param cost_dectree Rds file names
-#' @param health_dectree Rds file names
+#' @param N.mc Number of Monte Carlo iterations
+#' @param cost_dectree Rds file names with extension
+#' @param health_dectree Rds file names with extension
 #'
-#' @return
+#' @return list
 #' @export
 #'
 #' @examples
