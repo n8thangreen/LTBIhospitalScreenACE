@@ -10,15 +10,17 @@
 n_NPH <- 395
 n_WMH <- 719
 n_all <- n_NPH + n_WMH
+n_aldridge <- 514968/7
+
 
 # deterministic scenario data ---------------------------------------------
 
 # there are 2 decision tree arrangements:
-#  - prevalence is 'known' -> sensitivity and specificity used
-#  - number of positive test results is known -> PPV and NPV used
+#  - prevalence is 'known' -> sensitivity and specificity used ['forwards' model]
+#  - number of positive test results is known -> PPV and NPV used ['backwards' model]
 
-# parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
-parameter_values_file <- system.file("data", "scenario_parameters_predicted.xlsx",
+parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
+# parameter_values_file <- system.file("data", "scenario_parameters_predictive.xlsx",
                                      package = "LTBIhospitalScreenACE")
 
 scenario_parameter_cost <- readxl::read_excel(parameter_values_file,
@@ -47,19 +49,17 @@ scenario_parameters <- dplyr::bind_rows(scenario_parameter_cost,
 scenario_parameters <- split(x = scenario_parameters,
                              f = scenario_parameters$scenario)
 
-
 save(scenario_parameters, file = "data/scenario_parameters.RData")
 
 
 # yaml tree ---------------------------------------------------------------
 
-# different trees for if p is specified
+# different trees for if p (branch probabilities) are specified
 # as uniform distn or point values
 
-# yaml_filename <- "decision_tree_allscreen_p.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
-yaml_filename <- "decision_tree_predictive_allscreen_p.yaml"
+yaml_filename <- "decision_tree_choice.yaml" #"decision_tree_predictive_choice.yaml"
+# yaml_filename <- "decision_tree_predictive_allscreen_p.yaml" #"decision_tree_allscreen_p.yaml"
 
-# osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
 osNode.cost.fileName <- system.file("data", yaml_filename,
                                     package = "LTBIhospitalScreenACE")
 
