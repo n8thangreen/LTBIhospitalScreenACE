@@ -17,8 +17,8 @@ n_all <- n_NPH + n_WMH
 #  - prevalence is 'known' -> sensitivity and specificity used
 #  - number of positive test results is known -> PPV and NPV used
 
-parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
-# parameter_values_file <- system.file("data", "scenario_parameters_predicted.xlsx",
+# parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
+parameter_values_file <- system.file("data", "scenario_parameters_predicted.xlsx",
                                      package = "LTBIhospitalScreenACE")
 
 scenario_parameter_cost <- readxl::read_excel(parameter_values_file,
@@ -56,7 +56,8 @@ save(scenario_parameters, file = "data/scenario_parameters.RData")
 # different trees for if p is specified
 # as uniform distn or point values
 
-yaml_filename <- "decision_tree_allscreen_p.yaml" #"decision_tree_predictive_allscreen_p.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
+# yaml_filename <- "decision_tree_allscreen_p.yaml" #"decision_tree_predictive.yaml" #decision_tree.yaml
+yaml_filename <- "decision_tree_predictive_allscreen_p.yaml"
 
 # osNode.cost.fileName <- system.file("data", "decision_tree.yaml",
 osNode.cost.fileName <- system.file("data", yaml_filename,
