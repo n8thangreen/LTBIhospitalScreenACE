@@ -10,7 +10,7 @@
 n_NPH <- 395
 n_WMH <- 719
 n_all <- n_NPH + n_WMH
-n_aldridge <- 514968/7
+n_aldridge <- 514968/7*0.325
 
 
 # deterministic scenario data ---------------------------------------------

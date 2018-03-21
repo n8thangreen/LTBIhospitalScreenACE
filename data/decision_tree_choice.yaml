@@ -14,16 +14,16 @@
       max: 0
       type: chance
       Not Agree to Screen:
-        p: 0.675
+        p: 0.281
         distn: unif
         min: 0
         max: 0
         type: terminal
       Agree to Screen:
-        p: 0.325
+        p: 0.719
         distn: unif
-        min: 50
-        max: 106
+        min: 0
+        max: 0
         type: chance
         1-Sensitivity:
           p: 0.16
@@ -44,16 +44,16 @@
       max: 0
       type: chance
       Not Agree to Screen:
-        p: 0.675
+        p: 0.281
         distn: unif
         min: 0
         max: 0
         type: terminal
       Agree to Screen:
-        p: 0.325
+        p: 0.719
         distn: unif
-        min: 50
-        max: 106
+        min: 0
+        max: 0
         type: chance
         Specificity:
           p: 0.99
