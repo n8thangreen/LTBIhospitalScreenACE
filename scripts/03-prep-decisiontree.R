@@ -10,7 +10,7 @@
 n_NPH <- 395
 n_WMH <- 719
 n_all <- n_NPH + n_WMH
-n_aldridge <- 514968/7*0.325
+n_aldridge <- 514968/7*0.325 # 'study total'/years*'GP registration'
 
 
 # deterministic scenario data ---------------------------------------------
@@ -19,8 +19,8 @@ n_aldridge <- 514968/7*0.325
 #  - prevalence is 'known' -> sensitivity and specificity used ['forwards' model]
 #  - number of positive test results is known -> PPV and NPV used ['backwards' model]
 
-parameter_values_file <- system.file("data", "scenario_parameters.xlsx",
-# parameter_values_file <- system.file("data", "scenario_parameters_predictive.xlsx",
+parameter_values_file <- system.file("data", "scenario_parameters.xlsx", # forwards
+# parameter_values_file <- system.file("data", "scenario_parameters_predictive.xlsx", #backwards
                                      package = "LTBIhospitalScreenACE")
 
 scenario_parameter_cost <- readxl::read_excel(parameter_values_file,
@@ -34,7 +34,8 @@ scenario_parameter_p <- readxl::read_excel(parameter_values_file,
 scenario_parameter_p.melt <-
   as.data.frame(scenario_parameter_p) %>%
   reshape2::melt(id.vars = "scenario") %>%
-  plyr::rename(replace = c("variable" = "node",
+  plyr::rename(x = .,
+               replace = c("variable" = "node",
                            "value" = "p"))
 
 # combine probs and costs in to a single array
@@ -57,8 +58,10 @@ save(scenario_parameters, file = "data/scenario_parameters.RData")
 # different trees for if p (branch probabilities) are specified
 # as uniform distn or point values
 
-yaml_filename <- "decision_tree_choice.yaml" #"decision_tree_predictive_choice.yaml"
-# yaml_filename <- "decision_tree_predictive_allscreen_p.yaml" #"decision_tree_allscreen_p.yaml"
+# yaml_filename <- "decision_tree_predictive_GP.yaml"
+yaml_filename <- "decision_tree_GP.yaml"
+# yaml_filename <- "decision_tree_A&E_p.yaml"
+# yaml_filename <- "decision_tree_predictive_A&E_p.yaml"
 
 osNode.cost.fileName <- system.file("data", yaml_filename,
                                     package = "LTBIhospitalScreenACE")

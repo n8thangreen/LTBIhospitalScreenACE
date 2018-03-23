@@ -26,7 +26,7 @@ library(treeSimR)
 source("scripts/03-prep-decisiontree.R", echo = TRUE)
 source("scripts/05-prep-folders.R", echo = TRUE)
 
-#########
+#########k
 # model #
 #########
 
@@ -35,13 +35,14 @@ res <- mapply(FUN = decision_tree_ACE,
               N.mc = 20,
               cost_dectree = "osNode_cost.Rds",
               health_dectree = "osNode_cost.Rds",
-              LTBI_pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity", # GP
-              # LTBI_pathString = "LTBI screening cost/LTBI/Sensitivity",
-              # LTBI_pathString = "LTBI screening cost/Positive/PPV",
-              # N = c(n_NPH, n_NPH, # predictive QFT GIT/gold
+              LTBI_pathString = "LTBI screening cost/LTBI/Agree to Screen/Sensitivity", # GP forwards
+              # LTBI_pathString = "LTBI screening cost/Agree to Screen/Positive/PPV", # GP backwards
+              # LTBI_pathString = "LTBI screening cost/LTBI/Sensitivity", # A&E forwards
+              # LTBI_pathString = "LTBI screening cost/Positive/PPV", # A&E backwards
+              # N = c(n_NPH, n_NPH, # QFT-GIT/gold (backwards)
               #       n_WMH, n_WMH,
               #       n_all, n_all),
-              N = c(n_NPH, n_NPH, n_NPH, # prevalence -> sens/spec
+              N = c(n_NPH, n_NPH, n_NPH, # prevalence (forwards)
                     n_WMH, n_WMH, n_WMH,
                     n_all, n_all, n_all),
               SIMPLIFY = FALSE,
