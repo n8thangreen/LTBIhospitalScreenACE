@@ -4,87 +4,65 @@
     min: 0
     max: 0
     p: 1
-    pmin: 1
-    pmax: 1
     shape: NA
     scale: NA
     type: logical
     Agree to Screen:
-      p: 0.5
-      pmin: 0.5
-      pmax: 0.5
+      p: 0.719
       distn: unif
       min: 0
       max: 0
       type: chance
       Positive:
-        p: 0.18
-        pmin: 0.18
-        pmax: 0.18
+        p: 0.2
         distn: unif
         min: 0
         max: 0
         type: chance
         PPV:
           p: 0.97
-          pmin: 0.97
-          pmax: 0.97
           distn: unif
           min: 133.9502
           max: 133.9502
           type: terminal
         1-PPV:
           p: 0.03
-          pmin: 0.03
-          pmax: 0.03
           distn: unif
           min: 133.9502
           max: 133.9502
           type: terminal
       Negative:
-        p: 0.82
-        pmin: 0.82
-        pmax: 0.82
+        p: 0.8
         distn: unif
         min: 0
         max: 0
         type: chance
         NPV:
           p: 0.94
-          pmin: 0.94
-          pmax: 0.94
           distn: unif
           min: 133.9502
           max: 133.9502
           type: terminal
         1-NPV:
           p: 0.06
-          pmin: 0.06
-          pmax: 0.06
           distn: unif
           min: 133.9502
           max: 133.9502
           type: terminal
     Not Agree to Screen:
-      p: 0.5
-      pmin: 0.5
-      pmax: 0.5
+      p: 0.281
       distn: unif
       min: 0
       max: 0
       type: chance
       LTBI:
         p: 0.3
-        pmin: 0.3
-        pmax: 0.3
         distn: unif
         min: 0
         max: 0
         type: terminal
       Not-LTBI:
         p: 0.7
-        pmin: 0.7
-        pmax: 0.7
         distn: unif
         min: 0
         max: 0
